@@ -107,6 +107,55 @@ export default function OurProgram() {
           </ul>
         </section>
 
+        {/* Section: Personalized Learning Path */}
+        <section className="max-w-4xl mx-auto">
+          <h2 className="text-2xl font-semibold text-gray-800 mb-6">Personalized Learning Path: What You'll Learn</h2>
+          <p className="text-gray-700 mb-4">
+            Our program is designed to guide you through a comprehensive journey of self-discovery, skill development, and visionary leadership. As part of this personalized learning path, you'll explore various core concepts and apply practical tools to enhance your leadership capabilities. To further tailor your experience and ensure you're getting the most out of the program, we've included "Test Yourself" links for key areas of development.
+          </p>
+          <h3 className="text-xl font-medium text-blue-600">The Vision for Living a Purposeful Life</h3>
+          <a href="#discover-purpose" className="text-blue-500 underline">Test Yourself: Discover Your Purpose</a>
+
+          <h3 className="text-xl font-medium text-blue-600 mt-4">Core Concepts</h3>
+          <a href="#evaluate-understanding" className="text-blue-500 underline">Test Yourself: Evaluate Your Understanding of Leadership Fundamentals</a>
+          <p className="text-gray-700">How to Discover Your Top 10 Values in Life</p>
+          <a href="#identify-values" className="text-blue-500 underline">Test Yourself: Identify Your Core Values</a>
+          <p className="text-gray-700">How to Unwire Toxic & Negative Values</p>
+          <a href="#assess-negative-values" className="text-blue-500 underline">Test Yourself: Assess and Shift Negative Values</a>
+          <p className="text-gray-700">How to Discover Your Top 5 Strengths</p>
+          <a href="#find-strengths" className="text-blue-500 underline">Test Yourself: Find Your Strengths</a>
+          <p className="text-gray-700">How to Find Your Zone of Genius</p>
+          <a href="#locate-zone-genius" className="text-blue-500 underline">Test Yourself: Locate Your Zone of Genius</a>
+          <p className="text-gray-700">What Your Impact in the World Should Be</p>
+          <a href="#define-impact" className="text-blue-500 underline">Test Yourself: Define Your Global Impact</a>
+          <p className="text-gray-700">How to Create a Powerful Vision</p>
+          <a href="#vision-crafting" className="text-blue-500 underline">Test Yourself: Vision Crafting Exercise</a>
+          <p className="text-gray-700">How to Identify & Deal with Your Top Fears</p>
+          <a href="#confront-fears" className="text-blue-500 underline">Test Yourself: Confront Your Fears</a>
+          <p className="text-gray-700">How to Unwire Your Top Limiting Beliefs</p>
+          <a href="#challenge-limiting-beliefs" className="text-blue-500 underline">Test Yourself: Challenge Limiting Beliefs</a>
+          <p className="text-gray-700">How to Start Taking Action</p>
+          <a href="#action-planning" className="text-blue-500 underline">Test Yourself: Action Planning Workshop</a>
+          <p className="text-gray-700">How to Find Your Niche in the Marketplace</p>
+          <a href="#niche-discovery" className="text-blue-500 underline">Test Yourself: Niche Discovery Tool</a>
+          <p className="text-gray-700">How to Program Your Subconscious Mind</p>
+          <a href="#subconscious-reprogramming" className="text-blue-500 underline">Test Yourself: Subconscious Reprogramming Techniques</a>
+          <p className="text-gray-700">How to Do Research into Your Field</p>
+          <a href="#effective-research" className="text-blue-500 underline">Test Yourself: Effective Research Methods</a>
+          <p className="text-gray-700">How to Build Strong Habits</p>
+          <a href="#habit-formation" className="text-blue-500 underline">Test Yourself: Habit Formation Checklist</a>
+          <p className="text-gray-700">How to Set Goals</p>
+          <a href="#goal-setting" className="text-blue-500 underline">Test Yourself: Goal Setting Workshop</a>
+          <p className="text-gray-700">Critical Books for You to Read</p>
+          <a href="#literature-knowledge" className="text-blue-500 underline">Test Yourself: Literature Knowledge Test</a>
+          <p className="text-gray-700">How to Stay on Track with Your Life Purpose</p>
+          <a href="#purpose-alignment" className="text-blue-500 underline">Test Yourself: Purpose Alignment Check</a>
+          <p className="text-gray-700">How to Inspire Yourself</p>
+          <a href="#self-inspiration" className="text-blue-500 underline">Test Yourself: Self-Inspiration Techniques</a>
+          <p className="text-gray-700">Answers to All the Most Common Questions</p>
+          <a href="#faqs-understanding" className="text-blue-500 underline">Test Yourself: FAQs Understanding Quiz</a>
+        </section>
+
         {/* Section: AI in Leadership */}
         <section className="max-w-4xl mx-auto">
           <h2 className="text-2xl font-semibold text-gray-800 mb-6">AI in Leadership: Our Approach</h2>
@@ -148,7 +197,7 @@ export default function OurProgram() {
             <iframe
               width="560"
               height="315"
-              src="https://www.youtube.com/watch?v=GiLuloy37yM" // החליפי את VIDEO_ID עם הקוד של הסרטון
+              src="https://www.youtube.com/embed/VIDEO_ID" // החליפי את VIDEO_ID עם הקוד של הסרטון
               title="YouTube video player"
               frameBorder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -202,8 +251,8 @@ export default function OurProgram() {
             {/* Display Chat History */}
             <div className="space-y-4 mb-4">
               {chatHistory.map((entry, index) => (
-                <div key={index} className={`${entry.role === "user" ? "text-right" : "text-left"}`}>
-                  <p className={`text-sm ${entry.role === "user" ? "bg-blue-100" : "bg-green-100"} p-2 rounded-lg`}>
+                <div key={index} className="flex">
+                  <p className={`text-${entry.role === "user" ? "blue" : "green"}-600`}>
                     {entry.content}
                   </p>
                 </div>
@@ -217,16 +266,12 @@ export default function OurProgram() {
               placeholder="Ask something..."
               disabled={isLoading}
             />
-            <button onClick={handleSendMessage} className="bg-purple-500 text-white py-2 px-4 rounded-lg hover:bg-purple-600" disabled={isLoading}>
+            <button onClick={handleSendMessage} className="bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-purple-600" disabled={isLoading}>
               {isLoading ? "Loading..." : "Send Message"}
             </button>
           </div>
-   
         </section>
-      
       </main>
     </div>
-   
-
   );
 }

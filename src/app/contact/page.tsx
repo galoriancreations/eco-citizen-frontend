@@ -140,7 +140,7 @@ export default function ContactPage() {
               className="p-3 border rounded-lg w-full sm:w-auto"
               required
             />
-            <button type="submit" className="bg-green-500 text-white py-3 px-6 rounded-lg hover:bg-green-600 transition">Sign Up</button>
+            <button type="submit" className="bg-teal-500 text-white py-3 px-6 rounded-lg hover:bg-green-600 transition">Sign Up</button>
           </form>
         </section>
 
