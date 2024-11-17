@@ -1,6 +1,31 @@
 "use client";
 import Head from "next/head";
 import { useState } from "react";
+import { FaWhatsapp, FaTelegram } from "react-icons/fa";
+import Card from "../components/Card";
+
+const testYourselfLinks = [
+  { title: "Discover Your Purpose", description: "Find clarity about your purpose.", slug: "discover-purpose" },
+  { title: "Evaluate Leadership", description: "Assess your leadership fundamentals.", slug: "evaluate-leadership" },
+  { title: "Identify Your Core Values", description: "Uncover your top 10 values in life.", slug: "identify-values" },
+  { title: "Assess and Shift Negative Values", description: "Unwire toxic and negative values.", slug: "assess-negative-values" },
+  { title: "Find Your Strengths", description: "Discover your top 5 strengths.", slug: "find-strengths" },
+  { title: "Locate Your Zone of Genius", description: "Find your unique zone of genius.", slug: "locate-zone-genius" },
+  { title: "Define Your Global Impact", description: "Understand what your impact in the world should be.", slug: "define-impact" },
+  { title: "Vision Crafting Exercise", description: "Learn how to create a powerful vision.", slug: "vision-crafting" },
+  { title: "Confront Your Fears", description: "Identify and deal with your top fears.", slug: "confront-fears" },
+  { title: "Challenge Limiting Beliefs", description: "Unwire your top limiting beliefs.", slug: "challenge-limiting-beliefs" },
+  { title: "Action Planning Workshop", description: "Start taking meaningful action.", slug: "action-planning" },
+  { title: "Niche Discovery Tool", description: "Find your niche in the marketplace.", slug: "niche-discovery" },
+  { title: "Subconscious Reprogramming", description: "Learn how to program your subconscious mind.", slug: "subconscious-reprogramming" },
+  { title: "Effective Research Methods", description: "Do research effectively in your field.", slug: "effective-research" },
+  { title: "Habit Formation Checklist", description: "Build and maintain strong habits.", slug: "habit-formation" },
+  { title: "Goal Setting Workshop", description: "Learn how to set effective goals.", slug: "goal-setting" },
+  { title: "Literature Knowledge Test", description: "Discover critical books for you to read.", slug: "literature-knowledge" },
+  { title: "Purpose Alignment Check", description: "Stay on track with your life purpose.", slug: "purpose-alignment" },
+  { title: "Self-Inspiration Techniques", description: "Inspire yourself to keep going.", slug: "self-inspiration" },
+  { title: "FAQs Understanding Quiz", description: "Get answers to common questions.", slug: "faqs-understanding" },
+];
 
 export default function OurProgram() {
   const [chatHistory, setChatHistory] = useState<{ role: string; content: string }[]>([]);
@@ -78,17 +103,19 @@ export default function OurProgram() {
                   href="https://chat.whatsapp.com/YOUR_WHATSAPP_GROUP_LINK"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="bg-green-500 text-white px-4 py-2 rounded-lg hover:bg-green-600 transition"
+                  className="bg-teal-500 text-white p-4 rounded-full hover:bg-teal-600 transition flex items-center justify-center"
+                  title="Join WhatsApp Group"
                 >
-                  Join WhatsApp Group
+                  <FaWhatsapp size={24} />
                 </a>
                 <a
                   href="https://t.me/YOUR_TELEGRAM_GROUP_LINK"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 transition"
+                  className="bg-blue-500 text-white p-4 rounded-full hover:bg-blue-600 transition flex items-center justify-center"
+                  title="Join Telegram Group"
                 >
-                  Join Telegram Group
+                  <FaTelegram size={24} />
                 </a>
               </div>
             </li>
@@ -107,73 +134,22 @@ export default function OurProgram() {
           </ul>
         </section>
 
-        {/* Section: Personalized Learning Path */}
-        <section className="max-w-4xl mx-auto">
-          <h2 className="text-2xl font-semibold text-gray-800 mb-6">Personalized Learning Path: What You'll Learn</h2>
-          <p className="text-gray-700 mb-4">
-            Our program is designed to guide you through a comprehensive journey of self-discovery, skill development, and visionary leadership. As part of this personalized learning path, you'll explore various core concepts and apply practical tools to enhance your leadership capabilities. To further tailor your experience and ensure you're getting the most out of the program, we've included "Test Yourself" links for key areas of development.
-          </p>
-          <h3 className="text-xl font-medium text-blue-600">The Vision for Living a Purposeful Life</h3>
-          <a href="#discover-purpose" className="text-blue-500 underline">Test Yourself: Discover Your Purpose</a>
+ {/* Section: Personalized Learning Path */}
+<section className="max-w-6xl mx-auto py-12 px-6 bg-gray-50 rounded-lg shadow-lg">
+<h2 className="text-3xl font-bold text-gray-800 mb-8 text-center">Personalized Learning Path: What You'll Learn</h2>
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {testYourselfLinks.map((link) => (
+          <Card
+            key={link.slug}
+            title={link.title}
+            description={link.description}
+            link={`/${link.slug}`}
+          />
+        ))}
+      </div>
+</section>
 
-          <h3 className="text-xl font-medium text-blue-600 mt-4">Core Concepts</h3>
-          <a href="#evaluate-understanding" className="text-blue-500 underline">Test Yourself: Evaluate Your Understanding of Leadership Fundamentals</a>
-          <p className="text-gray-700">How to Discover Your Top 10 Values in Life</p>
-          <a href="#identify-values" className="text-blue-500 underline">Test Yourself: Identify Your Core Values</a>
-          <p className="text-gray-700">How to Unwire Toxic & Negative Values</p>
-          <a href="#assess-negative-values" className="text-blue-500 underline">Test Yourself: Assess and Shift Negative Values</a>
-          <p className="text-gray-700">How to Discover Your Top 5 Strengths</p>
-          <a href="#find-strengths" className="text-blue-500 underline">Test Yourself: Find Your Strengths</a>
-          <p className="text-gray-700">How to Find Your Zone of Genius</p>
-          <a href="#locate-zone-genius" className="text-blue-500 underline">Test Yourself: Locate Your Zone of Genius</a>
-          <p className="text-gray-700">What Your Impact in the World Should Be</p>
-          <a href="#define-impact" className="text-blue-500 underline">Test Yourself: Define Your Global Impact</a>
-          <p className="text-gray-700">How to Create a Powerful Vision</p>
-          <a href="#vision-crafting" className="text-blue-500 underline">Test Yourself: Vision Crafting Exercise</a>
-          <p className="text-gray-700">How to Identify & Deal with Your Top Fears</p>
-          <a href="#confront-fears" className="text-blue-500 underline">Test Yourself: Confront Your Fears</a>
-          <p className="text-gray-700">How to Unwire Your Top Limiting Beliefs</p>
-          <a href="#challenge-limiting-beliefs" className="text-blue-500 underline">Test Yourself: Challenge Limiting Beliefs</a>
-          <p className="text-gray-700">How to Start Taking Action</p>
-          <a href="#action-planning" className="text-blue-500 underline">Test Yourself: Action Planning Workshop</a>
-          <p className="text-gray-700">How to Find Your Niche in the Marketplace</p>
-          <a href="#niche-discovery" className="text-blue-500 underline">Test Yourself: Niche Discovery Tool</a>
-          <p className="text-gray-700">How to Program Your Subconscious Mind</p>
-          <a href="#subconscious-reprogramming" className="text-blue-500 underline">Test Yourself: Subconscious Reprogramming Techniques</a>
-          <p className="text-gray-700">How to Do Research into Your Field</p>
-          <a href="#effective-research" className="text-blue-500 underline">Test Yourself: Effective Research Methods</a>
-          <p className="text-gray-700">How to Build Strong Habits</p>
-          <a href="#habit-formation" className="text-blue-500 underline">Test Yourself: Habit Formation Checklist</a>
-          <p className="text-gray-700">How to Set Goals</p>
-          <a href="#goal-setting" className="text-blue-500 underline">Test Yourself: Goal Setting Workshop</a>
-          <p className="text-gray-700">Critical Books for You to Read</p>
-          <a href="#literature-knowledge" className="text-blue-500 underline">Test Yourself: Literature Knowledge Test</a>
-          <p className="text-gray-700">How to Stay on Track with Your Life Purpose</p>
-          <a href="#purpose-alignment" className="text-blue-500 underline">Test Yourself: Purpose Alignment Check</a>
-          <p className="text-gray-700">How to Inspire Yourself</p>
-          <a href="#self-inspiration" className="text-blue-500 underline">Test Yourself: Self-Inspiration Techniques</a>
-          <p className="text-gray-700">Answers to All the Most Common Questions</p>
-          <a href="#faqs-understanding" className="text-blue-500 underline">Test Yourself: FAQs Understanding Quiz</a>
-        </section>
 
-        {/* Section: AI in Leadership */}
-        <section className="max-w-4xl mx-auto">
-          <h2 className="text-2xl font-semibold text-gray-800 mb-6">AI in Leadership: Our Approach</h2>
-          <div className="space-y-8">
-            <div className="hover:scale-105 transform transition duration-300">
-              <h3 className="text-xl font-medium text-teal-600">Technology Behind the Training</h3>
-              <p className="text-gray-700">
-                Discover the cutting-edge AI technology that powers Ting Global Academy’s training program. Our tech-driven approach sets a new standard for leadership training.
-              </p>
-            </div>
-            <div className="hover:scale-105 transform transition duration-300">
-              <h3 className="text-xl font-medium text-teal-600">Benefits of AI-Enhanced Learning</h3>
-              <p className="text-gray-700">
-                Our AI-driven learning offers personalized, engaging, and relevant leadership training to prepare you for the digital era’s challenges and opportunities.
-              </p>
-            </div>
-          </div>
-        </section>
 
         {/* Section: Join the Program */}
         <section className="text-center max-w-4xl mx-auto">
@@ -214,25 +190,25 @@ export default function OurProgram() {
             <div className="hover:scale-105 transform transition duration-300 bg-gray-50 p-6 rounded-lg shadow-md">
               <h3 className="text-xl font-semibold text-blue-500">Future Leaders Program</h3>
               <p className="text-gray-700">
-                A comprehensive training initiative to equip young talents with the skills, knowledge, and mindset for innovative, ethical, and sustainable leadership.
+                A comprehensive training initiative designed to equip young talents with the skills, knowledge, and mindset needed to become visionary leaders of tomorrow, focusing on innovative thinking, ethical decision-making, and sustainable practices.
               </p>
             </div>
             <div className="hover:scale-105 transform transition duration-300 bg-gray-50 p-6 rounded-lg shadow-md">
               <h3 className="text-xl font-semibold text-teal-500">The Innovation Nations Games (TING) Olympics</h3>
               <p className="text-gray-700">
-                A global event where think tanks work on Sustainable Development Goals (SDGs) and the data economy. This multi-week event fosters innovation and change.
+                A global event where think tanks in various cities, universities, and schools collaborate to devise solutions to the Sustainable Development Goals (SDGs) and prepare for the new data economy. This multi-week event fosters innovation and systemic change.
               </p>
             </div>
             <div className="hover:scale-105 transform transition duration-300 bg-gray-50 p-6 rounded-lg shadow-md">
               <h3 className="text-xl font-semibold text-blue-600">TING Future of Work Portal</h3>
               <p className="text-gray-700">
-                A platform exploring the future of work with resources to help adapt to an evolving job market.
+                A comprehensive platform that explores the future landscape of work, offering insights, resources, and tools to help individuals and organisations adapt to and thrive in the evolving job market.
               </p>
             </div>
             <div className="hover:scale-105 transform transition duration-300 bg-gray-50 p-6 rounded-lg shadow-md">
               <h3 className="text-xl font-semibold text-teal-400">TING Thinking Method Workshops</h3>
               <p className="text-gray-700">
-                Interactive workshops teaching innovative thinking methods for creative problem-solving.
+                Interactive workshops that teach innovative thinking methods, empowering participants to tackle complex problems and develop creative solutions.
               </p>
             </div>
             <div className="hover:scale-105 transform transition duration-300 bg-gray-50 p-6 rounded-lg shadow-md">
@@ -266,7 +242,7 @@ export default function OurProgram() {
               placeholder="Ask something..."
               disabled={isLoading}
             />
-            <button onClick={handleSendMessage} className="bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-purple-600" disabled={isLoading}>
+            <button onClick={handleSendMessage} className="bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-teal-500" disabled={isLoading}>
               {isLoading ? "Loading..." : "Send Message"}
             </button>
           </div>

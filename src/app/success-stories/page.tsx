@@ -100,7 +100,7 @@ export default function SuccessStoriesPage() {
             Explore the impactful projects led by our participants, from sustainability initiatives to innovative startups.
           </p>
           <a
-            href="/initiatives"
+            href="/program"
             className="inline-block mt-6 bg-blue-500 text-white px-6 py-3 rounded-lg hover:bg-blue-600 transition"
           >
             Explore Initiatives

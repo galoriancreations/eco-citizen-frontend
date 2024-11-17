@@ -26,7 +26,7 @@ export async function POST(req: Request) {
 
     return NextResponse.json({ message: "Email sent successfully" }, { status: 200 });
   } catch (error) {
-    console.error("Error sending email:", error);
+    console.error("Error sending email:", error); // זה יציג את השגיאה בטרמינל
     return NextResponse.json({ error: "Failed to send email" }, { status: 500 });
   }
 }
