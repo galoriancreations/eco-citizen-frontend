@@ -93,7 +93,7 @@ export default function SuccessStoriesPage() {
       </section>
 
       {/* Featured Projects Section */}
-      <section className="py-16 bg-gray-100">
+      <section className="bg-gradient-to-r from-blue-500 to-teal-400 text-white py-16 text-center">
         <div className="container mx-auto px-6 text-center">
           <h2 className="text-3xl font-bold mb-4">Featured Projects</h2>
           <p className="text-lg text-gray-700 max-w-3xl mx-auto">
@@ -101,7 +101,7 @@ export default function SuccessStoriesPage() {
           </p>
           <a
             href="/program"
-            className="inline-block mt-6 bg-blue-500 text-white px-6 py-3 rounded-lg hover:bg-blue-600 transition"
+            className="inline-block mt-6 bg-white text-black px-6 py-3 rounded-lg hover:bg-blue-600 transition"
           >
             Explore Initiatives
           </a>

@@ -1,7 +1,8 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import Image from "next/image";
+import { questionsData } from "@/app/constants/questionsData";
+
 
 export default function AboutPage() {
   const [team, setTeam] = useState([]);
@@ -19,6 +20,13 @@ export default function AboutPage() {
   return (
     <main className="bg-white text-gray-900">
       {/* Section: Header */}
+      <div className="absolute inset-0">
+        {/* <img
+      src="/images/AI2.png" // נתיב התמונה
+      alt="AI Brain"
+      className="w-full h-full object-cover opacity-30"
+    /> */}
+      </div>
       <header className="bg-gradient-to-r from-blue-500 to-teal-400 text-white py-16">
         <div className="container mx-auto text-center">
           <h1 className="text-4xl font-bold">About Us</h1>
@@ -44,64 +52,23 @@ export default function AboutPage() {
       {/* Section: The 5 Ws and H */}
       <section className="py-16">
         <div className="container mx-auto px-6">
-          <h2 className="text-3xl font-bold text-center mb-8">The 5 Ws and H</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {/* Each "W" and "H" item with different color */}
-            <div className="bg-white shadow-md rounded-lg p-6">
-              <h3 className="text-xl font-semibold text-blue-500 mb-4">
-                Why <span className="text-yellow-400">❓</span>
-              </h3>
-              <ul className="list-disc list-inside text-gray-700 space-y-2">
-                <li>Ting Global Academy pioneers the integration of AI and personalized learning paths.</li>
-                <li>Offers immersive simulations and profit-sharing opportunities.</li>
-                <li>Empowers leaders to collaboratively shape the future of sustainable leadership.</li>
-              </ul>
-            </div>
-
-            <div className="bg-white shadow-md rounded-lg p-6">
-              <h3 className="text-xl font-semibold text-blue-500 mb-4">
-                Who <span className="text-yellow-400">❓</span>
-              </h3>
-              <p className="text-gray-700">
-                Designed for professionals, entrepreneurs, students, and anyone looking to discover their purpose and enhance their leadership skills.
-              </p>
-            </div>
-
-            <div className="bg-white shadow-md rounded-lg p-6">
-              <h3 className="text-xl font-semibold text-blue-500 mb-4">
-                What <span className="text-yellow-400">❓</span>
-              </h3>
-              <p className="text-gray-700">
-                Offers an AI-Enhanced Leadership Training Program that integrates advanced technology with immersive simulations and collaborative learning.
-              </p>
-            </div>
-
-            <div className="bg-white shadow-md rounded-lg p-6">
-              <h3 className="text-xl font-semibold text-blue-500 mb-4">
-                When <span className="text-yellow-400">❓</span>
-              </h3>
-              <p className="text-gray-700">
-                The program is available year-round, allowing participants to start their learning journey at their convenience.
-              </p>
-            </div>
-
-            <div className="bg-white shadow-md rounded-lg p-6">
-              <h3 className="text-xl font-semibold text-blue-500 mb-4">
-                Where <span className="text-yellow-400">❓</span>
-              </h3>
-              <p className="text-gray-700">
-                Operates entirely online, fostering a global community of learners and leaders.
-              </p>
-            </div>
-
-            <div className="bg-white shadow-md rounded-lg p-6">
-              <h3 className="text-xl font-semibold text-blue-500 mb-4">
-                How <span className="text-yellow-400">❓</span>
-              </h3>
-              <p className="text-gray-700">
-                Participants join through an application process and engage with AI avatars, immersive simulations, and collaborative labs.
-              </p>
-            </div>
+            {questionsData.map((item, index) => (
+              <div key={index} className="bg-white shadow-md rounded-lg p-6">
+                <h3 className="text-xl font-semibold text-blue-500 mb-4">
+                  {item.question} <span className="text-yellow-400">❔</span>
+                </h3>
+                {Array.isArray(item.answer) ? (
+                  <ul className="list-disc list-inside text-gray-700 space-y-2">
+                    {item.answer.map((answer, i) => (
+                      <li key={i}>{answer}</li>
+                    ))}
+                  </ul>
+                ) : (
+                  <p className="text-gray-700">{item.answer}</p>
+                )}
+              </div>
+            ))}
           </div>
         </div>
       </section>
@@ -114,12 +81,10 @@ export default function AboutPage() {
             {team.length > 0 ? (
               team.map((member) => (
                 <div key={member.id} className="text-center bg-gray-100 rounded-lg p-6 shadow-md">
-                  <Image
+                  <img
                     src={`/images/team-member.WEBP`}
                     alt={member.name}
-                    width={150}
-                    height={150}
-                    className="rounded-full mx-auto"
+                    className="rounded-full mx-auto w-32 h-32"
                   />
                   <h3 className="text-xl font-semibold mt-4">{member.name}</h3>
                   <p className="text-gray-600">{member.position}</p>

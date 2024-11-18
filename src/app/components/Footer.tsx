@@ -1,6 +1,13 @@
-
 import Link from 'next/link';
 import { FaFacebook, FaTwitter, FaLinkedin } from 'react-icons/fa';
+import { LINKS, SOCIALS } from '@/app/constants/footerData';
+
+
+const ICONS = {
+  FaFacebook,
+  FaTwitter,
+  FaLinkedin,
+};
 
 export default function Footer() {
   return (
@@ -8,23 +15,29 @@ export default function Footer() {
       <div className="container mx-auto px-6 text-center">
         <p className="mb-4">&copy; 2023 Ting Global Academy. All Rights Reserved.</p>
         <div className="space-x-4">
-          <Link href="/privacy-policy" className="hover:text-gray-400">Privacy Policy</Link>
-          <Link href="/terms-of-service" className="hover:text-gray-400">Terms of Service</Link>
-          <Link href="/contact" className="hover:text-gray-400">Contact Us</Link>
+          {LINKS.map((link) => (
+            <Link key={link.href} href={link.href} className="hover:text-gray-400">
+              {link.label}
+            </Link>
+          ))}
         </div>
         <div className="mt-4 flex justify-center space-x-4">
-          <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="hover:text-gray-400">
-            <FaFacebook size={24} />
-          </a>
-          <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="hover:text-gray-400">
-            <FaTwitter size={24} />
-          </a>
-          <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="hover:text-gray-400">
-            <FaLinkedin size={24} />
-          </a>
+          {SOCIALS.map((social) => {
+            const Icon = ICONS[social.icon];
+            return (
+              <a
+                key={social.href}
+                href={social.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-gray-400"
+              >
+                <Icon size={24} />
+              </a>
+            );
+          })}
         </div>
       </div>
     </footer>
   );
 }
-
