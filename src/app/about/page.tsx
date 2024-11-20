@@ -3,7 +3,6 @@
 import { useEffect, useState } from "react";
 import { questionsData } from "@/app/constants/questionsData";
 
-
 export default function AboutPage() {
   const [team, setTeam] = useState([]);
 
@@ -20,13 +19,6 @@ export default function AboutPage() {
   return (
     <main className="bg-white text-gray-900">
       {/* Section: Header */}
-      <div className="absolute inset-0">
-        {/* <img
-      src="/images/AI2.png" // נתיב התמונה
-      alt="AI Brain"
-      className="w-full h-full object-cover opacity-30"
-    /> */}
-      </div>
       <header className="bg-gradient-to-r from-blue-500 to-teal-400 text-white py-16">
         <div className="container mx-auto text-center">
           <h1 className="text-4xl font-bold">About Us</h1>
@@ -37,7 +29,7 @@ export default function AboutPage() {
       {/* Section: Our Mission and Vision */}
       <section className="py-16 bg-gray-100">
         <div className="container mx-auto px-6 text-center">
-          <h2 className="text-3xl font-bold mb-6">Our Story</h2>
+          <h2 className="text-3xl font-bold mb-6 text-blue-600">Our Story</h2>
           <p className="text-lg text-gray-700 max-w-3xl mx-auto">
             Ting Global Academy was founded with a vision to transform traditional leadership training.
             We believe that effective leadership in the 21st century benefits from an evolved approach—one that is personalized, enhanced by technology, and rooted in ethical, equitable, and sustainable decision-making.
@@ -55,8 +47,13 @@ export default function AboutPage() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {questionsData.map((item, index) => (
               <div key={index} className="bg-white shadow-md rounded-lg p-6">
-                <h3 className="text-xl font-semibold text-blue-500 mb-4">
-                  {item.question} <span className="text-yellow-400">❔</span>
+                <h3 className="text-3xl font-semibold mb-4 flex items-center">
+                  {item.question}
+                  <img
+                    src="/images/question-mark.png" // Path to your uploaded image
+                    alt="Question Mark"
+                    className="ml-2 w-8 h-8"
+                  />
                 </h3>
                 {Array.isArray(item.answer) ? (
                   <ul className="list-disc list-inside text-gray-700 space-y-2">

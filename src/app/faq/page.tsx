@@ -48,17 +48,17 @@ export default function FAQPage() {
   return (
     <main className="bg-gray-50 text-gray-900">
       {/* Header Section */}
-      <section className="py-16 bg-gradient-to-r from-blue-500 to-teal-400 text-white text-center">
+      <section className="bg-gradient-to-r from-blue-500 to-teal-400 text-white py-16 text-center">
         <div className="container mx-auto px-6">
-          <Image
+          {/* <Image
             src="/images/faq-banner.png"
             alt="FAQ Banner"
-            width={300}
-            height={300}
+            width={250}
+            height={250}
             className="mx-auto"
-          />
-          <h1 className="text-5xl font-bold mb-4">Frequently Asked Questions</h1>
-          <p className="text-lg max-w-3xl mx-auto">
+          /> */}
+          <h1 className="text-4xl font-bold mb-4">Frequently Asked Questions</h1>
+          <p className="text-lg max-w-2xl mx-auto">
             Got questions? Explore answers to common inquiries about our
             programs, processes, and more.
           </p>

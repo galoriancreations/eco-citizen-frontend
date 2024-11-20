@@ -49,28 +49,129 @@ export const programFeatures = [
         "Graduating from our program is just the beginning. Join our alumni network for ongoing learning opportunities, mentorship, and support as you continue your leadership journey.",
     },
   ];
-export const testYourselfLinks = [
-    { title: "Discover Your Purpose", description: "Find clarity about your purpose.", slug: "discover-purpose" },
-    { title: "Evaluate Leadership", description: "Assess your leadership fundamentals.", slug: "evaluate-leadership" },
-    { title: "Identify Your Core Values", description: "Uncover your top 10 values in life.", slug: "identify-values" },
-    { title: "Assess and Shift Negative Values", description: "Unwire toxic and negative values.", slug: "assess-negative-values" },
-    { title: "Find Your Strengths", description: "Discover your top 5 strengths.", slug: "find-strengths" },
-    { title: "Locate Your Zone of Genius", description: "Find your unique zone of genius.", slug: "locate-zone-genius" },
-    { title: "Define Your Global Impact", description: "Understand what your impact in the world should be.", slug: "define-impact" },
-    { title: "Vision Crafting Exercise", description: "Learn how to create a powerful vision.", slug: "vision-crafting" },
-    { title: "Confront Your Fears", description: "Identify and deal with your top fears.", slug: "confront-fears" },
-    { title: "Challenge Limiting Beliefs", description: "Unwire your top limiting beliefs.", slug: "challenge-limiting-beliefs" },
-    { title: "Action Planning Workshop", description: "Start taking meaningful action.", slug: "action-planning" },
-    { title: "Niche Discovery Tool", description: "Find your niche in the marketplace.", slug: "niche-discovery" },
-    { title: "Subconscious Reprogramming", description: "Learn how to program your subconscious mind.", slug: "subconscious-reprogramming" },
-    { title: "Effective Research Methods", description: "Do research effectively in your field.", slug: "effective-research" },
-    { title: "Habit Formation Checklist", description: "Build and maintain strong habits.", slug: "habit-formation" },
-    { title: "Goal Setting Workshop", description: "Learn how to set effective goals.", slug: "goal-setting" },
-    { title: "Literature Knowledge Test", description: "Discover critical books for you to read.", slug: "literature-knowledge" },
-    { title: "Purpose Alignment Check", description: "Stay on track with your life purpose.", slug: "purpose-alignment" },
-    { title: "Self-Inspiration Techniques", description: "Inspire yourself to keep going.", slug: "self-inspiration" },
-    { title: "FAQs Understanding Quiz", description: "Get answers to common questions.", slug: "faqs-understanding" },
+  export const testYourselfLinks = [
+    {
+      title: "Discover Your Purpose",
+      description: "Find clarity about your purpose.",
+      slug: "discover-purpose",
+      icon: "FaLightbulb", // אייקון המבטא רעיונות ותגליות
+    },
+    {
+      title: "Evaluate Leadership",
+      description: "Assess your leadership fundamentals.",
+      slug: "evaluate-leadership",
+      icon: "FaCrown", // אייקון המבטא מנהיגות והשראה
+    },
+    {
+      title: "Identify Your Core Values",
+      description: "Uncover your top 10 values in life.",
+      slug: "identify-values",
+      icon: "FaHeart", // אייקון המבטא ערכים ומשמעות
+    },
+    {
+      title: "Assess and Shift Negative Values",
+      description: "Unwire toxic and negative values.",
+      slug: "assess-negative-values",
+      icon: "FaRecycle", // אייקון המבטא שינוי והתחדשות
+    },
+    {
+      title: "Find Your Strengths",
+      description: "Discover your top 5 strengths.",
+      slug: "find-strengths",
+      icon: "FaDumbbell", // אייקון המבטא חוזק והתמדה
+    },
+    {
+      title: "Locate Your Zone of Genius",
+      description: "Find your unique zone of genius.",
+      slug: "locate-zone-genius",
+      icon: "FaBrain", // אייקון המבטא חשיבה ויצירתיות
+    },
+    {
+      title: "Define Your Global Impact",
+      description: "Understand what your impact in the world should be.",
+      slug: "define-impact",
+      icon: "FaGlobe", // אייקון המבטא השפעה גלובלית
+    },
+    {
+      title: "Vision Crafting Exercise",
+      description: "Learn how to create a powerful vision.",
+      slug: "vision-crafting",
+      icon: "FaEye", // אייקון המבטא חזון ובהירות
+    },
+    {
+      title: "Confront Your Fears",
+      description: "Identify and deal with your top fears.",
+      slug: "confront-fears",
+      icon: "FaExclamationTriangle", // אייקון המבטא התמודדות עם פחדים
+    },
+    {
+      title: "Challenge Limiting Beliefs",
+      description: "Unwire your top limiting beliefs.",
+      slug: "challenge-limiting-beliefs",
+      icon: "FaUnlock", // אייקון המבטא שחרור מחסומים
+    },
+    {
+      title: "Action Planning Workshop",
+      description: "Start taking meaningful action.",
+      slug: "action-planning",
+      icon: "FaTasks", // אייקון המבטא תכנון ומשימות
+    },
+    {
+      title: "Niche Discovery Tool",
+      description: "Find your niche in the marketplace.",
+      slug: "niche-discovery",
+      icon: "FaSearch", // אייקון המבטא חקר והתמקדות
+    },
+    {
+      title: "Subconscious Reprogramming",
+      description: "Learn how to program your subconscious mind.",
+      slug: "subconscious-reprogramming",
+      icon: "FaMagic", // אייקון המבטא שינוי עמוק
+    },
+    {
+      title: "Effective Research Methods",
+      description: "Do research effectively in your field.",
+      slug: "effective-research",
+      icon: "FaBook", // אייקון המבטא מחקר וידע
+    },
+    {
+      title: "Habit Formation Checklist",
+      description: "Build and maintain strong habits.",
+      slug: "habit-formation",
+      icon: "FaCheckCircle", // אייקון המבטא יצירת הרגלים
+    },
+    {
+      title: "Goal Setting Workshop",
+      description: "Learn how to set effective goals.",
+      slug: "goal-setting",
+      icon: "FaBullseye", // אייקון המבטא מטרה
+    },
+    {
+      title: "Literature Knowledge Test",
+      description: "Discover critical books for you to read.",
+      slug: "literature-knowledge",
+      icon: "FaBookOpen", // אייקון המבטא קריאה ולמידה
+    },
+    {
+      title: "Purpose Alignment Check",
+      description: "Stay on track with your life purpose.",
+      slug: "purpose-alignment",
+      icon: "FaCompass", // אייקון המבטא כיוון ומשמעות
+    },
+    {
+      title: "Self-Inspiration Techniques",
+      description: "Inspire yourself to keep going.",
+      slug: "self-inspiration",
+      icon: "FaStar", // אייקון המבטא השראה
+    },
+    {
+      title: "FAQs Understanding Quiz",
+      description: "Get answers to common questions.",
+      slug: "faqs-understanding",
+      icon: "FaQuestionCircle", // אייקון המבטא שאלות ותשובות
+    },
   ];
+  
   
   export const initiatives = [
     {

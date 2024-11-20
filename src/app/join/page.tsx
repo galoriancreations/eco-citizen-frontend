@@ -7,7 +7,7 @@ export default function JoinTheProgram() {
     <main className="bg-gray-50 text-gray-900 min-h-screen">
       {/* Header Section */}
       <header className="bg-gradient-to-r from-blue-500 to-teal-400 text-white py-16 text-center">
-        <h1 className="text-5xl font-bold">Join the Program</h1>
+        <h1 className="text-4xl font-bold">Join the Program</h1>
         <p className="mt-4 text-lg max-w-3xl mx-auto">
           Start your leadership journey today. Explore the transformative power of AI-enhanced training and discover your purpose.
         </p>

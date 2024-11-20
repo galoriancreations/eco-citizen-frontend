@@ -4,6 +4,7 @@ import { useState } from "react";
 import { FaWhatsapp, FaTelegram } from "react-icons/fa";
 import Card from "../components/Card";
 import { programFeatures, testYourselfLinks, initiatives } from "@/app/constants/programData";
+import { FaLightbulb, FaCrown, FaHeart } from "react-icons/fa";
 
 export default function OurProgram() {
   const [chatHistory, setChatHistory] = useState<{ role: string; content: string }[]>([]);
@@ -117,15 +118,28 @@ export default function OurProgram() {
 
         {/* Section: Personalized Learning Path */}
         <section className="max-w-6xl mx-auto py-12 px-6 bg-gray-50 rounded-lg shadow-lg">
-          <h2 className="text-3xl font-bold text-gray-800 mb-8 text-center">
-            Personalized Learning Path: What You'll Learn
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {testYourselfLinks.map((link) => (
-              <Card key={link.slug} title={link.title} description={link.description} link={`/${link.slug}`} />
-            ))}
-          </div>
-        </section>
+      <h2 className="text-3xl font-bold text-gray-800 mb-8 text-center">
+        Personalized Learning Path: What You'll Learn
+      </h2>
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {testYourselfLinks.map((link) => {
+          const Icon = require("react-icons/fa")[link.icon];
+          return (
+            <Card
+              key={link.slug}
+              title={
+                <div className="flex items-center space-x-3">
+                  {Icon && <Icon size={24} className="text-blue-500" />}
+                  <span>{link.title}</span>
+                </div>
+              }
+              description={link.description}
+              link={`/${link.slug}`}
+            />
+          );
+        })}
+      </div>
+    </section>
 
         {/* Section: Ting Global Academy Initiatives */}
         <section className="max-w-4xl mx-auto mt-16">

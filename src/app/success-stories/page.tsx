@@ -17,6 +17,7 @@ export default function SuccessStoriesPage() {
   const router = useRouter();
 
   useEffect(() => {
+
     const fetchStories = async () => {
       try {
         const response = await fetch("/api/success-stories");
@@ -43,19 +44,17 @@ export default function SuccessStoriesPage() {
   }
 
   return (
-    <main className="bg-gradient-to-b from-blue-50 to-blue-100 text-gray-900 py-16">
+    <main className="bg-white text-gray-900"  >
       {/* Header Section */}
-      <section className="py-16 bg-gray-100">
-        <div className="container mx-auto px-6 text-center">
-          <h1 className="text-4xl font-bold mb-4">Success Stories</h1>
-          <p className="text-lg max-w-3xl mx-auto">
-            Transformative Leadership Journeys
-          </p>
+      <header className="bg-gradient-to-r from-blue-500 to-teal-400 text-white py-16">
+        <div className="container mx-auto text-center">
+          <h1 className="text-4xl font-bold">Success Stories</h1>
+          <p className="mt-4 text-lg">Transformative Leadership Journeys</p>
         </div>
-      </section>
+      </header>
 
       {/* Success Stories Section */}
-      <section className="bg-gradient-to-b from-blue-50 to-blue-100 text-gray-900">
+      <section className="py-16 bg-gray-50">
         <div className="container mx-auto px-6 grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-8">
           {stories.map((story) => (
             <div
@@ -93,15 +92,15 @@ export default function SuccessStoriesPage() {
       </section>
 
       {/* Featured Projects Section */}
-      <section className="bg-gradient-to-r from-blue-500 to-teal-400 text-white py-16 text-center">
-        <div className="container mx-auto px-6 text-center">
-          <h2 className="text-3xl font-bold mb-4">Featured Projects</h2>
-          <p className="text-lg text-gray-700 max-w-3xl mx-auto">
+      <section className="py-16 bg-white">
+        <div className="container mx-auto text-center">
+          <h2 className="text-3xl font-bold mb-4 text-gray-800">Featured Projects</h2>
+          <p className="text-lg text-gray-600 max-w-3xl mx-auto mb-6">
             Explore the impactful projects led by our participants, from sustainability initiatives to innovative startups.
           </p>
           <a
             href="/program"
-            className="inline-block mt-6 bg-white text-black px-6 py-3 rounded-lg hover:bg-blue-600 transition"
+            className="inline-block mt-6 bg-blue-500 text-white px-6 py-3 rounded-lg hover:bg-blue-600 transition"
           >
             Explore Initiatives
           </a>
