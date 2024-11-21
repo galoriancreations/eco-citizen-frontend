@@ -1,8 +1,100 @@
 "use client";
 
-import { programSteps, programBenefits, programFeatures, pricingIncentives } from "@/app/constants/joinProgramData";
+import { useState } from "react";
+import Swal from "sweetalert2";
+import {
+  programSteps,
+  programBenefits,
+  programFeatures,
+  pricingIncentives,
+} from "@/app/constants/joinProgramData";
 
 export default function JoinTheProgram() {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [formData, setFormData] = useState({ fullName: "", email: "", reason: "" });
+  const [formErrors, setFormErrors] = useState({ fullName: "", email: "", reason: "" });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const toggleModal = () => {
+    setIsModalOpen(!isModalOpen);
+    setFormData({ fullName: "", email: "", reason: "" }); // Reset form data when closing
+    setFormErrors({ fullName: "", email: "", reason: "" });
+  };
+
+  const validateForm = () => {
+    const errors = { fullName: "", email: "", reason: "" };
+    let isValid = true;
+
+    if (!formData.fullName.trim()) {
+      errors.fullName = "Full name is required.";
+      isValid = false;
+    }
+
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!formData.email.trim()) {
+      errors.email = "Email is required.";
+      isValid = false;
+    } else if (!emailRegex.test(formData.email)) {
+      errors.email = "Invalid email format.";
+      isValid = false;
+    }
+
+    if (!formData.reason.trim()) {
+      errors.reason = "Please provide a reason for joining.";
+      isValid = false;
+    }
+
+    setFormErrors(errors);
+    return isValid;
+  };
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: value });
+    setFormErrors({ ...formErrors, [name]: "" });
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+
+    if (!validateForm()) return;
+
+    setIsSubmitting(true);
+
+    try {
+      const response = await fetch("/api/members", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (!response.ok) {
+        const errorData = await response.json();
+        throw new Error(errorData.error || "Failed to submit application.");
+      }
+
+      const data = await response.json();
+      Swal.fire({
+        title: "Success!",
+        text: data.message || "Your application has been submitted successfully.",
+        icon: "success",
+        confirmButtonText: "OK",
+      });
+      toggleModal();
+    } catch (error: any) {
+      Swal.fire({
+        title: "Error",
+        text: error.message || "Something went wrong. Please try again.",
+        icon: "error",
+        confirmButtonText: "OK",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
   return (
     <main className="bg-gray-50 text-gray-900 min-h-screen">
       {/* Header Section */}
@@ -38,12 +130,12 @@ export default function JoinTheProgram() {
             </div>
           ))}
           <div className="text-center mt-8">
-            <a
-              href="/apply"
+            <button
+              onClick={toggleModal}
               className="inline-block bg-blue-500 text-white py-3 px-6 rounded-md hover:bg-blue-600 transition"
             >
               Apply Now
-            </a>
+            </button>
           </div>
         </div>
 
@@ -74,13 +166,73 @@ export default function JoinTheProgram() {
         <p className="text-gray-700 mt-4 max-w-3xl mx-auto">
           Take the first step with Ting Global Academy. Explore your leadership potential and pave the way for a purposeful future.
         </p>
-        <a
-          href="/apply"
+        <button
+          onClick={toggleModal}
           className="inline-block mt-6 bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600 transition"
         >
           Apply Now
-        </a>
+        </button>
       </section>
+
+      {/* Modal */}
+      {isModalOpen && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+          <div className="bg-white p-8 rounded-lg shadow-lg max-w-md w-full relative">
+            <button
+              onClick={toggleModal}
+              className="absolute top-2 right-2 text-gray-600 hover:text-gray-800"
+            >
+              ✖
+            </button>
+            <h2 className="text-xl font-semibold mb-4">Application Form</h2>
+            <form onSubmit={handleSubmit} className="space-y-4">
+              <div>
+                <input
+                  type="text"
+                  name="fullName"
+                  placeholder="Full Name"
+                  value={formData.fullName}
+                  onChange={handleInputChange}
+                  className={`w-full p-3 border rounded-lg ${formErrors.fullName ? "border-red-500" : "border-gray-300"
+                    }`}
+                />
+                {formErrors.fullName && <p className="text-red-500 text-sm mt-1">{formErrors.fullName}</p>}
+              </div>
+              <div>
+                <input
+                  type="email"
+                  name="email"
+                  placeholder="Email Address"
+                  value={formData.email}
+                  onChange={handleInputChange}
+                  className={`w-full p-3 border rounded-lg ${formErrors.email ? "border-red-500" : "border-gray-300"
+                    }`}
+                />
+                {formErrors.email && <p className="text-red-500 text-sm mt-1">{formErrors.email}</p>}
+              </div>
+              <div>
+                <textarea
+                  name="reason"
+                  placeholder="Why do you want to join?"
+                  value={formData.reason}
+                  onChange={handleInputChange}
+                  className={`w-full p-3 border rounded-lg ${formErrors.reason ? "border-red-500" : "border-gray-300"
+                    }`}
+                  rows={4}
+                />
+                {formErrors.reason && <p className="text-red-500 text-sm mt-1">{formErrors.reason}</p>}
+              </div>
+              <button
+                type="submit"
+                className="w-full bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-blue-600 transition"
+                disabled={isSubmitting}
+              >
+                {isSubmitting ? "Submitting..." : "Submit Application"}
+              </button>
+            </form>
+          </div>
+        </div>
+      )}
     </main>
   );
 }
